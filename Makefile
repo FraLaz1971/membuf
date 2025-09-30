@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc -g -O2
 CFLAGS=-I.
 LD=gcc
 LDFLAGS=-L.

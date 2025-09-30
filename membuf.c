@@ -139,9 +139,15 @@ char * mem_putstr(char *s,struct mem_file *m){
 }
 
 char * mem_getline(char *s, struct mem_file *m){
-	int i;
-	for(i=0;(s[i]=mem_getc(m))!='\n';i++)
-		;
-	s[i]='\n';
+	int i=0;s=(char *)malloc(1);s[0]='\0';
+	char v;
+	v=mem_getc(m);
+	while((v!='\n')&&(v!=EOF)){
+		//printf("s[%d] = %c (%d) ",i,v,v);
+		if ((v==-1)||(v==0)) break;
+		s[i++]=v;
+		v=mem_getc(m);
+	}
+	if (v!=EOF) s[i]='\n';
 	return s;
 }

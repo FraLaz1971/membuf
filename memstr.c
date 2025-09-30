@@ -14,7 +14,7 @@ int writemf(struct mem_file * mf){
 int readmf(struct mem_file * mf){
 	int i=0;
 	char extr[128]="\0";
-	for(i=0;i<10;i++)
+	for(i=0;i<15;i++)
 		printf("%s",mem_getline(extr,mf));
 	return 0;
 }
